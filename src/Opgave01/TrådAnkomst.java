@@ -17,7 +17,8 @@ public class TrådAnkomst extends Thread{
             common.setFlag(true, kundeId);
             common.setTurn(conCurrentId);
             while (common.getFlag(conCurrentId) && common.getTurn() == conCurrentId);
-            System.out.println("Kunde nr. " + kundeId + " har fået nummer: " + common.nuværendeNummer());
+            common.nuværendeNummer();
+            System.out.println("Kunde har fået nummer: " + common.getNuværendeNummer());
             common.setFlag(false,kundeId);
             try {
                 Thread.sleep((long) (Math.random() * 1000));

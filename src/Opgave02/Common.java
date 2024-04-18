@@ -27,8 +27,8 @@ public class Common extends Thread{
     public void setSidsteNummer(int sidsteNummer) {
         this.sidsteNummer = sidsteNummer;
     }
-    public int nuværendeNummer(){
-        return nuværendeNummer++;
+    public void nuværendeNummer(){
+        nuværendeNummer++;
     }
 
     public int getNuværendeNummer() {

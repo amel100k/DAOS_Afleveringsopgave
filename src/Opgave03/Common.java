@@ -5,7 +5,6 @@ import java.util.Random;
 public class Common extends Thread{
     private volatile int nuværendeNummer = 0;
     private volatile int sidsteNummer = 0;
-    private boolean[] flag = {false, false};
     private volatile int turn = 0;
     public void TagerRanTid (int max)
     {
@@ -20,15 +19,15 @@ public class Common extends Thread{
         }
     }
 
+    public int nuværendeNummer(){
+        return nuværendeNummer++;
+    }
     public int getSidsteNummer() {
         return sidsteNummer;
     }
 
     public void setSidsteNummer(int sidsteNummer) {
         this.sidsteNummer = sidsteNummer;
-    }
-    public int nuværendeNummer(){
-        return nuværendeNummer++;
     }
 
     public int getNuværendeNummer() {
@@ -37,12 +36,6 @@ public class Common extends Thread{
 
     public void setNuværendeNummer(int nuværendeNummer) {
         this.nuværendeNummer = nuværendeNummer;
-    }
-    public void setFlag(boolean b, int id) {
-        this.flag[id] = b;
-    }
-    public boolean getFlag(int conCurrentId) {
-        return flag[conCurrentId];
     }
 
     public int getTurn() {

@@ -20,7 +20,8 @@ public class TrådAnkomst extends Thread{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("Kunde nr. " + kundeId + " har fået nummer: " + common.nuværendeNummer());
+            common.nuværendeNummer();
+            System.out.println("Kunde nr. " + kundeId + " har fået nummer: " + common.getNuværendeNummer());
             semaphore.release();
             try {
                 Thread.sleep((long) (Math.random() * 1000));
