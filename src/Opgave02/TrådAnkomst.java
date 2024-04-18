@@ -1,20 +1,27 @@
+package Opgave02;
+
+import java.util.concurrent.Semaphore;
+
 public class TrådAnkomst extends Thread{
     private Common common;
     private int kundeId;
     private int conCurrentId;
+    private Semaphore semaphore;
 
-    public TrådAnkomst (Common common, int kundeId){
+    public TrådAnkomst (Common common, int kundeId, Semaphore semaphore){
         this.common = common;
         this.kundeId = kundeId;
+        this.semaphore = semaphore;
     }
     public void run(){
         for (int i = 1; i <= 10; i++) {
-            conCurrentId = (kundeId + 1) % 2;
-            common.setFlag(true, kundeId);
-            common.setTurn(conCurrentId);
-            while (common.getFlag(conCurrentId) && common.getTurn() == conCurrentId);
-            System.out.println("Kunde nr. " + kundeId + " har fået nummer: " + common.næsteNummerIKø());
-            common.setFlag(false,kundeId);
+            try {
+                semaphore.acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("Kunde nr. " + kundeId + " har fået nummer: " + common.nuværendeNummer());
+            semaphore.release();
             try {
                 Thread.sleep((long) (Math.random() * 1000));
             } catch (InterruptedException e) {

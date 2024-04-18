@@ -1,22 +1,12 @@
+package Opgave01;
+
 import java.util.Random;
 
 public class Common extends Thread{
     private volatile int nuværendeNummer = 0;
-    private volatile int næsteNummerIKø = 0;
+    private volatile int sidsteNummer = 0;
     private boolean[] flag = {false, false};
     private volatile int turn = 0;
-    public synchronized int fåNæsteNummer(){
-        int id = (int) Thread.currentThread().getId() % 2;
-        setFlag(true,id);
-        turn = 1 - id;
-        int næsteNummer = næsteNummerIKø++;
-        setFlag(false, id);
-        while (flag[1 - id] && turn == (1 - id));
-        return næsteNummer;
-    }
-    public int næsteNummerIKø(){
-        return næsteNummerIKø++;
-    }
     public void TagerRanTid (int max)
     {
         int x,y;
@@ -30,20 +20,23 @@ public class Common extends Thread{
         }
     }
 
+    public int getSidsteNummer() {
+        return sidsteNummer;
+    }
+
+    public void setSidsteNummer(int sidsteNummer) {
+        this.sidsteNummer = sidsteNummer;
+    }
+    public int nuværendeNummer(){
+        return nuværendeNummer++;
+    }
+
     public int getNuværendeNummer() {
         return nuværendeNummer;
     }
 
     public void setNuværendeNummer(int nuværendeNummer) {
         this.nuværendeNummer = nuværendeNummer;
-    }
-
-    public int getNæsteNummerIKø() {
-        return næsteNummerIKø;
-    }
-
-    public void setNæsteNummerIKø(int næsteNummerIKø) {
-        this.næsteNummerIKø = næsteNummerIKø;
     }
     public void setFlag(boolean b, int id) {
         this.flag[id] = b;
