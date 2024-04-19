@@ -12,8 +12,8 @@ public class Main {
         TrådAnkomst trådAnkomst = new TrådAnkomst(common,0, semaphore);
         TrådAnkomst trådAnkomst1 = new TrådAnkomst(common,1, semaphore);
 
-        trådEkspedient.start();
         trådAnkomst.start();
         trådAnkomst1.start();
+        trådEkspedient.start();
     }
 }

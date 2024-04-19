@@ -6,15 +6,16 @@ public class TrådEkspedient extends Thread{
         this.common = common;
     }
     public void run(){
-        for (int i = 1; i <= 19 ; i++) {
-            int sidsteNummer = common.getSidsteNummer();
-            System.out.println("Bageren er ved at ekspedere " + (sidsteNummer + 1));
-            common.setSidsteNummer(sidsteNummer + 1);
+        for (int i = 1; i <= 20 ; i++) {
+
             try {
                 Thread.sleep((long) (Math.random() * 1000));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            while (common.getSidsteNummer() == common.getNuværendeNummer());
+
+            common.bagerNummer();
         }
     }
 }

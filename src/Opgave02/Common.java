@@ -3,10 +3,8 @@ package Opgave02;
 import java.util.Random;
 
 public class Common extends Thread{
-    private volatile int nuværendeNummer = 0;
-    private volatile int sidsteNummer = 0;
-    private boolean[] flag = {false, false};
-    private volatile int turn = 0;
+    private int nuværendeNummer = 0;
+    private int sidsteNummer = 0;
     public void TagerRanTid (int max)
     {
         int x,y;
@@ -37,19 +35,5 @@ public class Common extends Thread{
 
     public void setNuværendeNummer(int nuværendeNummer) {
         this.nuværendeNummer = nuværendeNummer;
-    }
-    public void setFlag(boolean b, int id) {
-        this.flag[id] = b;
-    }
-    public boolean getFlag(int conCurrentId) {
-        return flag[conCurrentId];
-    }
-
-    public int getTurn() {
-        return turn;
-    }
-
-    public void setTurn(int turn) {
-        this.turn = turn;
     }
 }

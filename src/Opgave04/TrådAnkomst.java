@@ -1,28 +1,19 @@
-package Opgave02;
-
-import java.util.concurrent.Semaphore;
+package Opgave04;
 
 public class TrådAnkomst extends Thread{
     private Common common;
     private int kundeId;
-    private int conCurrentId;
-    private Semaphore semaphore;
+    private String navn;
 
-    public TrådAnkomst (Common common, int kundeId, Semaphore semaphore){
+    public TrådAnkomst (Common common, int kundeId, String navn){
         this.common = common;
         this.kundeId = kundeId;
-        this.semaphore = semaphore;
+        this.navn = navn;
     }
     public void run(){
         for (int i = 1; i <= 10; i++) {
-            try {
-                semaphore.acquire();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            common.nuværendeNummer();
-            System.out.println("Kunde har fået nummer: " + common.getNuværendeNummer());
-            semaphore.release();
+            common.append(navn + i);
+
             try {
                 Thread.sleep((long) (Math.random() * 1000));
             } catch (InterruptedException e) {

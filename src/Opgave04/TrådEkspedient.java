@@ -1,4 +1,4 @@
-package Opgave02;
+package Opgave04;
 
 public class TrådEkspedient extends Thread{
     private Common common;
@@ -6,17 +6,14 @@ public class TrådEkspedient extends Thread{
         this.common = common;
     }
     public void run(){
-        for (int i = 1; i <= 20 ; i++) {
+        for (int i = 1; i <= 10 ; i++) {
 
             try {
                 Thread.sleep((long) (Math.random() * 1000));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            while (common.getSidsteNummer() == common.getNuværendeNummer());
-
-            System.out.println("Bageren er ved at ekspedere " + (common.getSidsteNummer() + 1));
-            common.setSidsteNummer(common.getSidsteNummer() + 1);
+            System.out.println(common.take());
         }
     }
 }
