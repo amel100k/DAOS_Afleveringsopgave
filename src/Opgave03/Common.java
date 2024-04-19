@@ -17,7 +17,6 @@ public class Common extends Thread{
             }
         }
     }
-
     public synchronized void nuværendeNummer(){
         nuværendeNummer++;
         notify();

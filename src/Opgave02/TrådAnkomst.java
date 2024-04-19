@@ -29,14 +29,5 @@ public class TrådAnkomst extends Thread{
                 throw new RuntimeException(e);
             }
         }
-
-    }
-
-    public int getKundeId() {
-        return kundeId;
-    }
-
-    public void setKundeId(int kundeId) {
-        this.kundeId = kundeId;
     }
 }

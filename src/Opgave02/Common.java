@@ -21,18 +21,15 @@ public class Common extends Thread{
     public int getSidsteNummer() {
         return sidsteNummer;
     }
-
     public void setSidsteNummer(int sidsteNummer) {
         this.sidsteNummer = sidsteNummer;
     }
     public void nuværendeNummer(){
         nuværendeNummer++;
     }
-
     public int getNuværendeNummer() {
         return nuværendeNummer;
     }
-
     public void setNuværendeNummer(int nuværendeNummer) {
         this.nuværendeNummer = nuværendeNummer;
     }

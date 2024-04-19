@@ -19,7 +19,6 @@ public class Common extends Thread{
             }
         }
     }
-
     public int getSidsteNummer() {
         return sidsteNummer;
     }

@@ -5,8 +5,6 @@ import java.util.Random;
 public class Common extends Thread{
     private int nuværendeNummer = 0;
     private int sidsteNummer = 0;
-    private boolean[] flag = {false, false};
-    private volatile int turn = 0;
     private String[] buffer = new String[20];
     private int nextin = 0;
     private int nextout = 0;
